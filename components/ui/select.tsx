@@ -17,7 +17,7 @@ export interface SelectComponentProps extends SelectProps {
   options: SelectOption[];
 }
 
-export default (props: SelectComponentProps) => {
+const SelectComponent = (props: SelectComponentProps) => {
   let [value, setValue] = useState(props.value);
 
   // Group options by their 'group' property
@@ -39,36 +39,38 @@ export default (props: SelectComponentProps) => {
             <ChevronDown />
           </Select.Icon>
         </Select.Trigger>
-        <Select.Portal>
-          <Select.Content className=" dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
-            <Select.ScrollUpButton>
-              <ChevronUp />
-            </Select.ScrollUpButton>
-            <Select.Viewport>
-              {Object.entries(groupedOptions).map(([group, options]) => (
-                <React.Fragment key={group}>
-                  <Select.Group>
-                    <Select.Label>{group}</Select.Label>
-                    {options.map((option) => (
-                      <SelectItem
-                        key={option.value}
-                        value={option.value}
-                        className="hover:bg-opacity-50"
-                      >
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </Select.Group>
-                  <Select.Separator />
-                </React.Fragment>
-              ))}
-            </Select.Viewport>
-            <Select.ScrollDownButton>
-              <ChevronDown />
-            </Select.ScrollDownButton>
-          </Select.Content>
-        </Select.Portal>
+        <Select.Content className="menu p-2 shadow bg-base-300 rounded-box w-52">
+          <Select.ScrollUpButton>
+            <ChevronUp />
+          </Select.ScrollUpButton>
+          <Select.Viewport>
+            {Object.entries(groupedOptions).map(([group, options]) => (
+              <React.Fragment key={group}>
+                <Select.Group>
+                  <Select.Label>{group}</Select.Label>
+                  {options.map((option) => (
+                    <SelectItem
+                      key={option.value}
+                      value={option.value}
+                      className="hover:bg-opacity-50"
+                    >
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </Select.Group>
+                <Select.Separator />
+              </React.Fragment>
+            ))}
+          </Select.Viewport>
+          <Select.ScrollDownButton>
+            <ChevronDown />
+          </Select.ScrollDownButton>
+        </Select.Content>
       </Select.Root>
     </div>
   );
 };
+
+SelectComponent.displayName = "Select";
+
+export default SelectComponent;
