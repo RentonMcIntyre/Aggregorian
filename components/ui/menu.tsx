@@ -41,13 +41,13 @@ const MenuComponent = (props: MenuComponentProps) => {
         <Menu.Button className={buttonClasses}>
           {props.label || "Menu"}
         </Menu.Button>
-        <Menu.Items className="dropdown-content border-primary border-2 z-[1] menu p-2 shadow bg-base-100 text-base-foreground rounded-box w-52">
+        <Menu.Items className="dropdown-content border-primary border-2 z-[1] menu p-0 shadow bg-base-100 text-base-foreground rounded-box w-fit">
           {props.options.map((option) => (
             <Menu.Item
               key={option.value}
               as="a"
               onClick={() => selectItem(option)}
-              className="hover:bg-primary rounded-2xl hover:text-primary-foreground p-2"
+              className="hover:bg-primary hover:text-primary-foreground p-2"
             >
               {option.label}
             </Menu.Item>
