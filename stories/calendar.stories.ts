@@ -27,6 +27,7 @@ type Story = StoryObj<typeof meta>;
 const today = new Date();
 const tasks: CalendarTask[] = new Array(10).fill(0).map((_, i) => {
   return {
+    id: faker.string.uuid(),
     title: `Task ${i + 1}`,
     date: faker.date.between({
       from: startOfWeek(startOfMonth(today)),

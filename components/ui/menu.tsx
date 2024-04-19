@@ -47,7 +47,7 @@ const MenuComponent = (props: MenuComponentProps) => {
               key={option.value}
               as="a"
               onClick={() => selectItem(option)}
-              className="hover:bg-primary hover:text-primary-foreground p-2"
+              className="hover:bg-primary hover:text-primary-content p-2 last:rounded-b-box first:rounded-t-box"
             >
               {option.label}
             </Menu.Item>
