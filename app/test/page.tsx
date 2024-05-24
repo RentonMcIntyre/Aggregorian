@@ -1,9 +1,13 @@
+import { GoogleCalendar } from "@/lib/service/calendar/google";
+
 export default function Test() {
+  const googleCalService = new GoogleCalendar();
+
   return (
     <section className="h-screen flex justify-center items-center">
-      <button className="animate-spin btn btn-primary">
-        Woah, you&rsquo;re kind of silly, huh?
-      </button>
+      <a className="btn btn-primary" href={googleCalService.authUrl}>
+        Connect to Google
+      </a>
     </section>
   );
 }
