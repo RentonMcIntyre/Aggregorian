@@ -27,7 +27,7 @@ const MenuComponent = (props: MenuComponentProps) => {
   );
 
   const buttonClasses = twMerge(
-    "btn p-2 h-8 min-h-0",
+    "btn min-h-0",
     props.variant ? `btn-${props.variant}` : ""
   );
 
