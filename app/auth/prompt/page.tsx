@@ -18,7 +18,7 @@ export default function Prompt() {
         <button className="btn btn-primary" onMouseDown={disconnectGoogleAuth}>
           Disconnect Google
         </button>
-        : <Link className="btn btn-primary" href="/auth/gcal/consent" aria-label="Disconnect Google">
+        : <Link className="btn btn-primary" href="/auth/gcal/request" aria-label="Disconnect Google">
           Connect to Google
         </Link>
       }
